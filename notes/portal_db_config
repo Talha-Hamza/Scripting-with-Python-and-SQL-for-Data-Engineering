@@ -1,0 +1,39 @@
+CREATE TABLE patients(
+    patient_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    p_sed INT NOT NULL,
+    p_v_light INT NOT NULL,
+    p_light INT NOT NULL,
+    p_mode INT NOT NULL,
+    p_vig INT NOT NULL,
+    p_v_vig INT NOT NULL
+
+);
+
+
+CREATE TABLE actual_exercise(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    patient_id INT NOT NULL,
+    date DATE NOT NULL,
+    FOREIGN KEY (patient_id) REFERENCES patients(patient_id),
+    sed INT NOT NULL,
+    v_light INT NOT NULL,
+    light INT NOT NULL,
+    mode INT NOT NULL,
+    vig INT NOT NULL,
+    v_vig INT NOT NULL
+);
+
+INSERT INTO patients (first_name, last_name, p_sed, p_v_light, p_light, p_mode, p_vig, p_v_vig)
+VALUES ('Otto', 'Sanchez', 0, 0, 0, 0, 0, 0);
+
+DELETE FROM actual_exercise WHERE patient_id = 1;
+
+
+
+
+
+
+
+
